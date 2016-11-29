@@ -1,0 +1,32 @@
+	
+<div class="card-columns">
+	<% @pubs.each do |pub| %>	
+    <!--Card-->
+
+    <div class="card card-inverse card-outline-primary animated fadeInUp" style="max-width: 300px;background-color: #5cb85c; border-color: #333;">
+
+        <!--Card image-->
+        <% if pub.image_url.present? %>
+            <%= image_tag(pub.image_url, class: "card-img-top img-fluid") %>
+         <% else %>
+         	<img src="http://placehold.it/300x150">
+         <% end %> 	
+        <!--/.Card image-->
+
+        <!--Card content-->
+        <div class="card-block text-xs-center">
+            <!--Title-->
+            <h4 class="card-title"><strong><%= link_to pub.name, pub_path(pub.id) %></strong></h4>            
+
+            <p class="card-text"><%= pub.locality %>,<span><%= pub.city %></span></p>
+			<div class="card-footer card-inverse">
+				<%= pub.meet_time.strftime("%b-%d-%Y") %>
+	                    
+			</div>
+        </div>
+        <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+<% end %>
+</div>	

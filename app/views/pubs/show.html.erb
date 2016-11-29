@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+    	<div class="card-block">
+	      <h3 class="card-title"><%= @pub.name %></h3>
+	      <p class="card-text"><%= @pub.locality %></p>	      
+	    </div>
+	    <%= image_tag(@pub.image_url, class: "img-fluid") %>
+	    <div class="card-block">
+	        <address class="card-text"><%= @pub.location%></address>
+	        
+	        
+	     </div>
+    </div>
+   </div> 
+
+	<div class="col-sm-6">
+		<div class="card card-block" style="background-color: #5cb85c; border-color: #333; color: white ">
+			<%= link_to "Visit Pub", @pub.url,class: "btn btn-warning btn-block" ,:target => "_blank" %> <br/>
+			<blockquote class="blockquote">
+			  <p class="mb-1">Price for Two : <%= @pub.avg_cost %></p>
+			  <p class="mb-0">Average Rating : <%= @pub.rating %></p>
+			</blockquote>
+		</div>
+	</div>
+</div>
+
