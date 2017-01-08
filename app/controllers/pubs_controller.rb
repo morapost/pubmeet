@@ -5,5 +5,6 @@ class PubsController < ApplicationController
 
   def show
   	@pub = Pub.find(params[:id])
+  	@invite = Invite.find(params[:invite_id]) if params.key? :invite_id
   end
 end

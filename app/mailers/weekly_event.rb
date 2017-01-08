@@ -7,7 +7,8 @@ class WeeklyEvent < ApplicationMailer
   #
   def invitation_mail(invite)
     @user = invite.user
-	@pub = invite.event.pub
+	 @pub = invite.event.pub
+   @invite = invite
 	mail to: "#{@user.email}", subject: "#{@pub.name} - Invitation"
   end
 end

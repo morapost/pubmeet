@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'pubs#index'
 resources :pubs do

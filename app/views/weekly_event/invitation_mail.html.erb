@@ -1,6 +1,7 @@
 <p>Hi User,</p>
 <p> 
-    This week we have chosen (<%= @pub.name %>) for the weekly pub meet. 
+    This week we have chosen (<%= @pub.name %>) for the weekly pub meet. <br/>
+	click this link <%= pub_url(@pub, invite_id: @invite.id) %>
 </p>
 
 <p>
