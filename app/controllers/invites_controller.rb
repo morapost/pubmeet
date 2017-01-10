@@ -1,8 +1,13 @@
 class InvitesController < ApplicationController
 
+	def index
+		@invites = Invite.all
+	end
+
 	def edit
 		@invite = Invite.find(params[:id])
 	end
+	
 	def update
 		@invite = Invite.find(params[:id])
 		if !@invite.accepted

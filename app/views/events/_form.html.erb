@@ -1,0 +1,28 @@
+
+<div class="row">
+	<div class="col-md-8 offset-md-2" style="border: 1px solid #5cb85c;">
+		<%= form_for @event do |f| %>
+			<div class="error" style="color:red">
+				<% if @event.errors.any? %>
+					<h3>These errors prohibitted the form from being saved</h3>
+					<ul>
+						<% @event.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+							
+					</ul>
+				<% end %>
+			</div>
+			<br>
+			<div class="form-group">
+				<%= f.label :pub_id %> : 
+				<%= f.collection_select :pub_id, Pub.all, :id, :name, prompt: "Select Pub", class: "form-control" %> <br/>
+
+				<%= f.label :meet_time %> : 
+				<%= f.date_select :meet_time, order: [:day,:month,:year], class: "form-control" %><br/><br/>
+				
+				<%= f.submit class: 'btn btn-primary' %> 
+			</div>
+		<% end %>
+	</div>
+</div>

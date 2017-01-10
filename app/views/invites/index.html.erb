@@ -1,0 +1,9 @@
+<div class="row">
+	<% @invites.each do |invite| %>
+		<div class="col-md-6" style = "border: 1px solid #5cb85c; padding: 10px;">
+			<h4>Pub Name: <%= invite.event.pub.name %></h4> <br/>
+			<h4> User Name : <%= invite.user.email %> </h4> <br/>
+			<p> Accepted Flag : <%= invite.accepted %></p>	
+		</div>
+	<% end %>
+</div>
