@@ -15,4 +15,27 @@
 //= require turbolinks
 //= require vue
 //= require bootstrap
+//= require toastr
 //= require_tree .
+
+
+$(document).ready(function() {
+	
+	
+	 toastr.options = {
+	                  "closeButton": true,
+	                  "debug": false,
+	                  "positionClass": "toast-top-right",
+	                  "progressBar": true,
+	                  "onclick": null,
+	                  "showDuration": "300",
+	                  "hideDuration": "1000",
+	                  "timeOut": "5000",
+	                  "extendedTimeOut": "1000",
+	                  "showEasing": "swing",
+	                  "hideEasing": "linear",
+	                  "showMethod": "fadeIn",
+	                  "hideMethod": "fadeOut"
+	              }
+	
+	});
