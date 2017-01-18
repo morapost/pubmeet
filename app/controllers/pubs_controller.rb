@@ -1,4 +1,5 @@
 class PubsController < ApplicationController
+	before_action :authenticate_user!, except: [:index]
   def index
   	@pubs = Pub.where('meet_time > ?', DateTime.now)
   end

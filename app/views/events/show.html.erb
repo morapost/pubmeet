@@ -1,0 +1,25 @@
+<div class="card-columns">
+		
+    <!--Card-->
+
+	    <div class="card card-inverse card-outline-primary animated fadeInUp" style="max-width: 300px;background-color: #5cb85c; border-color: #333;">
+
+	        <!--Card content-->
+	        <div class="card-block text-xs-center">
+	            <!--Title-->
+	            <h4 class="card-title"><strong><%= @event.pub.name %></strong></h4>            
+
+	            <p class="card-text"><%= @event.pub.locality %>,<span><%= @event.pub.city %></span></p>
+				<div class="card-footer card-inverse">
+					<%= @event.pub.meet_time.strftime("%b-%d-%Y") %>		                    
+				</div>
+	        </div>
+	        <!--/.Card content-->
+			<div class="card-footer card-inverse">
+				<%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "Back", :back %>
+			                  
+			</div>
+	    </div>
+    <!--/.Card-->
+	
+</div>	
