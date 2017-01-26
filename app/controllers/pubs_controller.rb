@@ -1,16 +1,20 @@
 class PubsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
   def index
-  	@pubs = Pub.where('meet_time > ?', DateTime.now)
+  	@pub = Pub.all.order('meet_time').first
+    @events = @pub.events.includes(:invites)
+    # TODO 
+    @prev_pub = # TODO ??
+    @next_pub = # TODO ??
+    render 'show'    
   end
 
   def show
   	@pub = Pub.find(params[:id])
-  	#@invite = Invite.find(params[:invite_id]) if params.key? :invite_id
-
   	@events = @pub.events.includes(:invites)
-
-  	#@invite = @pub.invites.where(user: current_user).first
-
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
