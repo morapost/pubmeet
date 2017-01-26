@@ -9,4 +9,8 @@ class Invite < ActiveRecord::Base
 	def send_mail
 		WeeklyEvent.invitation_mail(self).deliver
 	end
+
+  def opposite_state
+    accepted == true ? "Decline" : "Accept"
+  end
 end

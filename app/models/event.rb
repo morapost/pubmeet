@@ -9,7 +9,6 @@ class Event < ActiveRecord::Base
 		users = User.all
 		users.each do |user|
 			invite = Invite.create(event: self, user: user)
-
 		end		
 	end
 end

@@ -10,12 +10,11 @@ class InvitesController < ApplicationController
 	
 	def update
 		@invite = Invite.find(params[:id])
-		if !@invite.accepted
-			@invite.update_attributes(accepted: true)
+		@invite.update_attributes(accepted: !@invite.accepted)
+    if !@invite.accepted
 			redirect_to :back, notice: "You are in for party"
-  		else
-  			@invite.update_attributes(accepted: false)
-  			redirect_to :back, notice: "Hope to see you again"
-  		end
+  	else
+			redirect_to :back, notice: "Hope to see you again"
+		end
 	end
 end
