@@ -22,7 +22,10 @@ class EventsController < ApplicationController
   end
 
   def show
-  	 
+  	 respond_to do |format|
+      format.js
+      format.html
+     end
   end
 
   def update

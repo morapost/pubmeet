@@ -19,34 +19,29 @@
    		<blockquote class="blockquote">
    		  <p class="mb-1">Price for Two : <%= @pub.avg_cost %></p>
    		  <p class="mb-0">Average Rating : <%= @pub.rating %></p>
-   		  
    		</blockquote>
+      <div id="events">
+         <% @events.each do |event| %> 
+            <!--Card-->
+             <div class="card card-inverse card-outline-primary animated fadeInUp" style="max-width: 300px;background-color: #fff; border-color: #333;">
+                 <!--Card content-->
+                 <div class="card-block text-xs-center">
+                     <!--Title-->
+                     <p class="card-text"><%= link_to event.meet_time.strftime("%b-%d-%Y"), event, remote: true %></p>
+                 </div>
+                 <!--/.Card content-->
+             </div>
+            <!--/.Card-->
+         <% end %>
+      </div>
+
+      <div id="event_detail">
+        
+      </div>
    	</div>
    </div>	
    <br>
-	
-		<% @events.each do |event| %>	
-	    <!--Card-->
-
-		    <div class="card card-inverse card-outline-primary animated fadeInUp" style="max-width: 300px;background-color: #5cb85c; border-color: #333;">
-
-		        <!--Card content-->
-		        <div class="card-block text-xs-center">
-		            <!--Title-->
-		                        
-
-		            <p class="card-text"><%= link_to event.pub.meet_time.strftime("%b-%d-%Y"), event %></p>
-					
-		        </div>
-		        <!--/.Card content-->
-			
-		    </div>
-	    <!--/.Card-->
-		<% end %>
-		
 </div>
-
-
 
 <script type="text/javascript">
 	new Vue({
