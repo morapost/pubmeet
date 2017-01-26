@@ -1,5 +1,6 @@
 class Pub < ActiveRecord::Base
 	has_many :users
+	has_many :events
 	has_many :invites
 
 	def self.import_from_zomato!

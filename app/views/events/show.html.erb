@@ -14,7 +14,26 @@
 					<%= @event.pub.meet_time.strftime("%b-%d-%Y") %>		                    
 				</div>
 	        </div>
+	        
+
 	        <!--/.Card content-->
+	        <% @event.invites.each do |invite| %>
+	        	<%= invite.user.email %> <br>
+		        	<% if user_signed_in? && invite.user == current_user %>
+	   		  	
+		   		  		<%= link_to "Accept", invite,data: { confirm: 'Confirm Request' },class: "btn btn-warning btn-sm", id: "accept_request", method: :patch %>
+		   		  		<style>
+		   		  			.is_disabled { pointer-events: none;
+		   		  			color: red; }
+		   		  		</style>
+		   		  		<div id="app">
+		   		  			
+		   		  			<%= button_to "Cancel",invite, method: :patch, class: "btn btn-danger btn-sm", disabled: "{'is_disabled' : is_disabled} @click = toggleClass" %>
+		   		  		</div>	
+	   		  	
+					<% end %>
+
+	        <% end %>
 			<div class="card-footer card-inverse">
 				<%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "Back", :back %>
 			                  

@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :pub
 	belongs_to :user
+	has_many :invites
 	after_create :send_invitations
 
 	def send_invitations
